@@ -26,7 +26,12 @@ MAINTAINER "Laradock Team <mahmoud@zalt.me>"
 ENV GOPATH /go
 ENV PATH $GOPATH/bin:/usr/local/go/bin:$PATH
 
+RUN apk update && apk upgrade && \
+    apk add --no-cache openrc bash git openssh
+    
 RUN mkdir -p "$GOPATH/src" "$GOPATH/bin" && chmod -R 777 "$GOPATH"
 WORKDIR $GOPATH
+
+CMD ["/sbin/init"]
 
 EXPOSE 22
