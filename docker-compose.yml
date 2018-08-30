@@ -1,0 +1,19 @@
+version: '3.2'
+
+services:
+
+#================================================================================================
+# GOLANG
+#================================================================================================
+  golang:
+    restart: always
+    build:
+      context: .
+    ports:
+      - "9101:22"
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /data/golang:/go
+    environment:
+      - GOLANG_VERSION=5.1.3
+      
