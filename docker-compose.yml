@@ -16,4 +16,3 @@ services:
       - /data/golang:/go
     environment:
       - GOLANG_VERSION=1.11
-      
