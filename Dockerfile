@@ -28,8 +28,12 @@ ENV PATH $GOPATH/bin:/usr/local/go/bin:$PATH
 
 RUN apk update && apk upgrade && \
     apk add --no-cache openrc bash git openssh
-    
+
 RUN mkdir -p "$GOPATH/src" "$GOPATH/bin" && chmod -R 777 "$GOPATH"
+
+# Install dep
+RUN go get -u github.com/golang/dep/cmd/dep -v
+
 WORKDIR $GOPATH
 
 CMD ["/sbin/init"]
