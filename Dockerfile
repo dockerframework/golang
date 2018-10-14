@@ -1,6 +1,5 @@
 ARG GOLANG_VERSION=1.11
-ARG ALPINE_VERSION=3.8
-FROM golang:${GOLANG_VERSION}-alpine${ALPINE_VERSION}
+FROM golang:${GOLANG_VERSION}
 
 # ================================================================================================
 #  Inspiration: Docker Framework (https://github.com/zeroc0d3/docker-framework)
@@ -26,12 +25,15 @@ MAINTAINER "Laradock Team <mahmoud@zalt.me>"
 ENV GOPATH /go
 ENV PATH $GOPATH/bin:/usr/local/go/bin:$PATH
 
-RUN apk update && apk upgrade && \
-    apk add --no-cache openrc bash git openssh
-    
+RUN apt-get install -y bash git
+
 RUN mkdir -p "$GOPATH/src" "$GOPATH/bin" && chmod -R 777 "$GOPATH"
+
+# Install dep
+RUN go get -u github.com/golang/dep/cmd/dep -v
+
 WORKDIR $GOPATH
 
-CMD ["/sbin/init"]
+CMD ["go", "version"]
 
 EXPOSE 22
