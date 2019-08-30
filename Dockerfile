@@ -27,9 +27,14 @@ ENV GOPATH /go
 ENV PATH $GOPATH/bin:/usr/local/go/bin:$PATH
 
 RUN apk update && apk upgrade && \
-    apk add --no-cache openrc bash git openssh
+    apk add --no-cache openrc bash git openssh curl
 
-RUN mkdir -p "$GOPATH/src" "$GOPATH/bin" && chmod -R 777 "$GOPATH"
+RUN curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
+
+RUN set -eux; \
+    mkdir -p "$GOPATH/src" "$GOPATH/bin" \
+    && chmod -R 777 "$GOPATH"
+
 WORKDIR $GOPATH
 
 CMD ["/sbin/init"]
