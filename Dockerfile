@@ -1,5 +1,5 @@
-ARG GOLANG_VERSION=1.11
-ARG ALPINE_VERSION=3.8
+ARG GOLANG_VERSION=1.12
+ARG ALPINE_VERSION=3.9
 FROM golang:${GOLANG_VERSION}-alpine${ALPINE_VERSION}
 
 # ================================================================================================
@@ -28,7 +28,7 @@ ENV PATH $GOPATH/bin:/usr/local/go/bin:$PATH
 
 RUN apk update && apk upgrade && \
     apk add --no-cache openrc bash git openssh
-    
+
 RUN mkdir -p "$GOPATH/src" "$GOPATH/bin" && chmod -R 777 "$GOPATH"
 WORKDIR $GOPATH
 
