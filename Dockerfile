@@ -25,7 +25,7 @@ MAINTAINER "Laradock Team <mahmoud@zalt.me>"
 ENV GOPATH /go
 ENV PATH $GOPATH/bin:/usr/local/go/bin:$PATH
 
-RUN apt-get install -y bash git openssh-server curl
+RUN apt-get install -y bash git curl
 
 RUN curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
 
