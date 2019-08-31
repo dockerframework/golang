@@ -1,4 +1,4 @@
-version: '3.2'
+version: '3.5'
 
 services:
 
@@ -14,6 +14,6 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - ${DATA_GOLANG}:/go
+    privileged: true
     environment:
       - GOLANG_VERSION=${GOLANG_VERSION}
-      

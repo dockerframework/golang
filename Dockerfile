@@ -25,12 +25,13 @@ MAINTAINER "Laradock Team <mahmoud@zalt.me>"
 ENV GOPATH /go
 ENV PATH $GOPATH/bin:/usr/local/go/bin:$PATH
 
-RUN apt-get install -y bash git
+RUN apt-get install -y bash git openssh curl
 
-RUN mkdir -p "$GOPATH/src" "$GOPATH/bin" && chmod -R 777 "$GOPATH"
+RUN curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
 
-# Install dep
-RUN go get -u github.com/golang/dep/cmd/dep -v
+RUN set -eux; \
+    mkdir -p "$GOPATH/src" "$GOPATH/bin" \
+    && chmod -R 777 "$GOPATH"
 
 WORKDIR $GOPATH
 
