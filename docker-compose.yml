@@ -1,4 +1,4 @@
-version: '3.2'
+version: '3.5'
 
 services:
 
@@ -16,5 +16,5 @@ services:
       - ./data/golang:/go
     privileged: true
     environment:
-      - GOLANG_VERSION=1.11
+      - GOLANG_VERSION=1.12
 
