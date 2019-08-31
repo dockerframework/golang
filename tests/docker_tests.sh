@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 DOCKER_IMAGE="dockerframework/golang"
-DOCKER_TAG="1.11-ubuntu"
+DOCKER_TAG="1.12-ubuntu"
 
 #### Halt script on error
 set -e

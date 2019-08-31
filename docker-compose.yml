@@ -15,4 +15,4 @@ services:
       - /etc/localtime:/etc/localtime:ro
       - /data/golang:/go
     environment:
-      - GOLANG_VERSION=1.11
+      - GOLANG_VERSION=1.12
