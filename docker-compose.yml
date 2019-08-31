@@ -13,7 +13,7 @@ services:
       - "9101:22"
     volumes:
       - /etc/localtime:/etc/localtime:ro
-      - /data/golang:/go
+      - ./data/golang:/go
+    privileged: true
     environment:
       - GOLANG_VERSION=1.11
-      
