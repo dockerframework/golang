@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 DOCKER_IMAGE="dockerframework/golang"
-DOCKER_TAG="latest"
+DOCKER_TAG="1.12-alpine3.9"
 
 #### Halt script on error
 set -e

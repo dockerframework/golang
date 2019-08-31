@@ -17,4 +17,3 @@ services:
     privileged: true
     environment:
       - GOLANG_VERSION=1.12
-
