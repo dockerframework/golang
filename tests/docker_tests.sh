@@ -1,7 +1,11 @@
 #!/usr/bin/env bash
 
 DOCKER_IMAGE="dockerframework/golang"
+<<<<<<< HEAD
 DOCKER_TAG="1.11-alpine3.8"
+=======
+DOCKER_TAG="1.11-alpine3.7"
+>>>>>>> 1.11-alpine3.7
 
 #### Halt script on error
 set -e
